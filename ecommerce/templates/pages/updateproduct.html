@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+<div class="container ms-auto py-5">
+  <h1 class="mb-4">UPDATE PRODUCT</h1>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="mb-3">
+      <label>ID:</label>
+      <input type="number" class="form-control" name="id" value="{{ product.id }}" >
+    </div>
+    <form method="POST">
+      
+    <div class="mb-3">  
+      <label >Title:</label>
+      <input type="text" class="form-control" name="title" value="{{ product.title }}">
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price:</label>
+      <input type="number" class="form-control" name="price" value="{{ product.price }}">
+    </div>
+
+    <div class="mb-3">
+      <label for="category" class="form-label">Category:</label>
+      <input type="text" class="form-control" name="category"value="{{ product.category }}">
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">image:</label>
+      <input type="file" class="form-control" name="image" value="{{ product.image }}">
+    </div>
+    
+    <button type="submit" class="btn btn-success">Submit</button> 
+  </form>
+</div>
+{% endblock %}

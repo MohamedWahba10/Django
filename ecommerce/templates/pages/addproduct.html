@@ -1,24 +1,35 @@
 {% extends "base.html" %} {% block content %} {% load static %}
 <div class="container ms-auto py-5">
-  <h1>ADD PRODUCT</h1>
-  <form method="POST">
-    {%csrf_token%}
-  <label >ID:</label>
-  <input type="number" name="id">
+  <h1 class="mb-4">ADD PRODUCT</h1>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="mb-3">
+      <label for="id" class="form-label">ID:</label>
+      <input type="number" class="form-control" name="id">
+    </div>
 
-  <label>Title:</label>
-  <input type="text" name="title">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title:</label>
+      <input type="text" class="form-control" name="title">
+    </div>
 
-  <label >price :</label>
-  <input type="number" name="price">
+    <div class="mb-3">
+      <label for="price" class="form-label">Price:</label>
+      <input type="number" class="form-control" name="price">
+    </div>
 
-   <label>category:</label>
-  <input type="text" name="category">
+    <div class="mb-3">
+      <label for="category" class="form-label">Category:</label>
+      <input type="text" class="form-control" name="category">
+    </div>
 
-  <label>Thumbnail:</label>
- <input type="text" name="Thumbnail">
- <br>
-  <button type="submit">Submit</button>
-</form>
+    <div class="mb-3">
+      <label for="image" class="form-label">image:</label>
+      <input type="file" class="form-control" name="image">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 </div>
 {% endblock %}

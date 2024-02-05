@@ -1,0 +1,20 @@
+{% extends "base.html" %} 
+{% block content %} 
+{% load static %}
+
+<div class="container ms-auto py-5">
+    <h1 class="mb-4">ADD PRODUCT</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form }}
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="text-danger">
+        {{ message }}
+    </div>
+</div>
+{% endblock %}
+ 
