@@ -2,12 +2,14 @@ from django.shortcuts import render,reverse
 from django.http import HttpResponse ,HttpResponseRedirect
 from .models import *
 from .forms import *
+
 def product(request):
-    context = {'products': Product.objects.all()}  #
+    
+    context = {'products':Product.product_list()}  
     return render(request, 'pages/product.html', context)
 
 def productDetail(request, productID):
-    product_instance = Product.objects.get(id=productID)
+    product_instance = Product.product_details(productID)
     context = {'product': product_instance}
     if product_instance:
         return render(request, 'pages/productDetail.html', context)
